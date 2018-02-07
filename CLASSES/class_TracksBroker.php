@@ -42,13 +42,13 @@ class TracksBroker
         try {
             $sql = "SELECT intTrackID FROM tracks WHERE intArtistID = ?";
             $query = $db->prepare($sql);
-            $query->execute(array($intShowID));
+            $query->execute(array($intArtistID));
             // This section of code, thanks to code example here:
             // http://www.lornajane.net/posts/2011/handling-sql-errors-in-pdo
             if ($query->errorCode() != 0) {
                 throw new Exception(
                     "SQL Error: " . print_r(
-                        array('sql'=>$sql, 'values'=>$intShowID, 'error'=>$query->errorInfo()), true
+                        array('sql'=>$sql, 'values'=>$intArtistID, 'error'=>$query->errorInfo()), true
                     ), 1
                 );
             }
@@ -167,7 +167,7 @@ class TracksBroker
             if ($query->errorCode() != 0) {
                 throw new Exception(
                     "SQL Error: " . print_r(
-                        array('sql'=>$sql, 'values'=>$intShowID, 'error'=>$query->errorInfo()), true
+                        array('sql'=>$sql, 'error'=>$query->errorInfo()), true
                     ), 1
                 );
             }

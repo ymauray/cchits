@@ -31,7 +31,7 @@ class TrendBroker
     /**
      * A function to retrieve all the tracks associated to the last 7 days of trending data.
      *
-     * @param date    $strTrendDate The date of the chart in Y-m-d format
+     * @param string  $strTrendDate The date of the chart in Y-m-d format
      * @param integer $intPage      The start "page" number
      * @param integer $intSize      The size of each page
      *
@@ -137,7 +137,7 @@ class TrendBroker
      * A function to retrieve all the tracks associated to the last 7 days of trending data for one track.
      *
      * @param integer $intTrackID   The track to search for
-     * @param date    $strTrendDate The date to end the trending information on
+     * @param string  $strTrendDate The date to end the trending information on, 
      * @param integer $intPage      The start "page" number
      * @param integer $intSize      The size of each page
      *

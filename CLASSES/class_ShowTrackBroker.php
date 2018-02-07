@@ -320,7 +320,7 @@ class ShowTrackBroker
      *
      * @return boolean Worked or it didn't
      */
-    public function ChangeTrackID($intOldTrackID = 0, $intNewTrackID = 0)
+    public static function ChangeTrackID($intOldTrackID = 0, $intNewTrackID = 0)
     {
         $db = Database::getConnection();
         try {

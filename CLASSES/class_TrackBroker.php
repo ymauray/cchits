@@ -233,7 +233,7 @@ class TrackBroker
      *
      * @return array|false An array of TrackObject or false if the item doesn't exist
      */
-    public function getTrackByPartialName(
+    public static function getTrackByPartialName(
         $strTrackName = "",
         $intPage = null,
         $intSize = null
@@ -249,7 +249,7 @@ class TrackBroker
         } elseif ($intSize == null) {
             $intSize = 25;
         }
-        if ($strSort == null and isset($arrUri['parameters']['sort'])) {
+        if ((!isset($strSort) || $strSort == null) and isset($arrUri['parameters']['sort'])) {
             if ($arrUri['parameters']['sort'] == 'intTrackID' || $arrUri['parameters']['sort'] == 'strTrackName') {
                 $strSort = $arrUri['parameters']['sort'];
             } else {
@@ -259,7 +259,7 @@ class TrackBroker
             $strSort = 'intTrackID';
         }
 
-        if ($strDirection == null and isset($arrUri['parameters']['direction'])) {
+        if ((!isset($strDirection) or $strDirection == null) and isset($arrUri['parameters']['direction'])) {
             if ($arrUri['parameters']['direction'] == 'desc') {
                 $strDirection = 'DESC';
             } else {
@@ -358,7 +358,7 @@ class TrackBroker
             $intSize = 25;
         }
 
-        if ($strSort == null and isset($arrUri['parameters']['sort'])) {
+        if ((!isset($strSort) or $strSort == null) and isset($arrUri['parameters']['sort'])) {
             if ($arrUri['parameters']['sort'] == 'intTrackID' || $arrUri['parameters']['sort'] == 'strTrackName') {
                 $strSort = $arrUri['parameters']['sort'];
             } else {
@@ -368,7 +368,7 @@ class TrackBroker
             $strSort = 'intTrackID';
         }
 
-        if ($strDirection == null and isset($arrUri['parameters']['direction'])) {
+        if ((!isset($strDirection) or $strDirection == null) and isset($arrUri['parameters']['direction'])) {
             if ($arrUri['parameters']['direction'] == 'desc') {
                 $strDirection = 'DESC';
             } else {

@@ -66,6 +66,7 @@ class TrackObject extends GenericObject
      */
     function __construct()
     {
+        parent::__construct();
         if ($this->intDuplicateID != 0) {
             $pointer = TrackBroker::getTrackByID($this->intDuplicateID);
             $this->intTrackID = $pointer->get_intTrackID();
@@ -637,7 +638,7 @@ class TrackObject extends GenericObject
     function set_datDailyShow($datDailyShow = "")
     {
         if ($this->datDailyShow != $datDailyShow) {
-            $this->datDailyShow = $datDailyshow;
+            $this->datDailyShow = $datDailyShow;
             $this->arrChanges['datDailyShow'] = true;
         }
     }
@@ -906,7 +907,7 @@ class TrackObject extends GenericObject
     /**
      * Length of the track
      *
-     * @return time Length of this track
+     * @return string Length of this track
      */
     function get_timeLength()
     {

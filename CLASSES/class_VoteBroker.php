@@ -149,7 +149,7 @@ class VoteBroker
      *
      * @return boolean Worked or it didn't
      */
-    public function MergeVotes($intOldTrackID = 0, $intNewTrackID = 0)
+    public static function MergeVotes($intOldTrackID = 0, $intNewTrackID = 0)
     {
         $db = Database::getConnection();
         try {

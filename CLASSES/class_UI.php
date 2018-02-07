@@ -352,7 +352,7 @@ class UI
      */
     function sendHttpResponseNote($status = 200, $extra = '')
     {
-        sendHttpResponse($status, null, 'text/html', $extra);
+        static::sendHttpResponse($status, null, 'text/html', $extra);
     }
 
     /**

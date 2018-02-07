@@ -17,7 +17,7 @@
 use PHPUnit\Framework\TestCase;
 
 /**
- * This class is a dummy unit test to check if the system works.
+ * This class tests the methods of TrackBroker.
  *
  * @category Default
  * @package  Tests
@@ -28,7 +28,7 @@ use PHPUnit\Framework\TestCase;
  * @link     https://github.com/CCHits/Website Version Control Service
  */
 
-final class DummyTest extends TestCase
+final class TrackBrokerTest extends TestCase
 {
     /**
      * Setup before the class' first test.
@@ -51,13 +51,18 @@ final class DummyTest extends TestCase
     }
 
     /**
-     * Dummy test.
+     * Test function getTrackByPartialName
      * 
      * @return void
      */
-    public function testDummy()
+    public function testGetTrackByPartialName()
     {
-        $this->assertTrue(true);
+        // Given a partial name of 'song'
+        $partialName = "song";
+        // When I call TrackBroker::getTrackByPartialName
+        $result = TrackBroker::getTrackByPartialName("song");
+        // It should return an array of x elements
+        $this->assertEquals(7, count($result));
     }
 
     /**
@@ -78,5 +83,5 @@ final class DummyTest extends TestCase
     public static function tearDownAfterClass()
     {
 
-    }
+    }    
 }
