@@ -124,7 +124,7 @@ class UserBroker
      *
      * @return object UserObject for intUserID
      */
-    function getUserByID($intUserID = 0)
+    static function getUserByID($intUserID = 0)
     {
         $objSelf = self::getHandler();
         if (0 + $intUserID > 0) {
