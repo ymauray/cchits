@@ -1,0 +1,16 @@
+{
+    "require": {
+        "catfan/medoo": "^1.5",
+        "slim/slim": "^3.11",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "APIv3\\": "v3.0",
+            "APIv3Tests\\": "v3.0-tests"
+        }
+    }
+}
