@@ -1300,21 +1300,23 @@ class HTML
             break;
         case 'faq':
         default:
-            $this->result['ServiceName'] = ConfigBroker::getConfig('ServiceName', 'CCHits');
-            $this->result['Slogan'] = ConfigBroker::getConfig('Slogan', 'Where you make the charts');
-            $this->result['baseURL'] = $this->arrUri['basePath'];
-            $this->result['arrUri'] = $this->arrUri;
-            $this->result['jquery'] = $this->extLib->getVersion('JQUERY');
-            $this->result['jplayer'] = $this->extLib->getVersion('JPLAYER');
-            $this->result['jplayer29'] = $this->extLib->getVersion('JPLAYER29');
-            $this->result['jquerysparkline'] = $this->extLib->getVersion('JQUERY.SPARKLINE');
-            $this->result['bootstrap4'] = $this->extLib->getVersion('BOOTSTRAP4');
-            $this->result['jquery3'] = $this->extLib->getVersion('JQUERY3');
-            $this->result['popperjs'] = $this->extLib->getVersion('POPPERJS');
-            $this->result['chartjs'] = $this->extLib->getVersion('CHARTJS');
-            $this->result['fontawesome'] = $this->extLib->getVersion('FONTAWESOME');
-            $this->result['previous_page'] = false;
-            UI::SmartyTemplate("about.html", $this->result);
+            if ($this->render()) {
+                $this->result['ServiceName'] = ConfigBroker::getConfig('ServiceName', 'CCHits');
+                $this->result['Slogan'] = ConfigBroker::getConfig('Slogan', 'Where you make the charts');
+                $this->result['baseURL'] = $this->arrUri['basePath'];
+                $this->result['arrUri'] = $this->arrUri;
+                $this->result['jquery'] = $this->extLib->getVersion('JQUERY');
+                $this->result['jplayer'] = $this->extLib->getVersion('JPLAYER');
+                $this->result['jplayer29'] = $this->extLib->getVersion('JPLAYER29');
+                $this->result['jquerysparkline'] = $this->extLib->getVersion('JQUERY.SPARKLINE');
+                $this->result['bootstrap4'] = $this->extLib->getVersion('BOOTSTRAP4');
+                $this->result['jquery3'] = $this->extLib->getVersion('JQUERY3');
+                $this->result['popperjs'] = $this->extLib->getVersion('POPPERJS');
+                $this->result['chartjs'] = $this->extLib->getVersion('CHARTJS');
+                $this->result['fontawesome'] = $this->extLib->getVersion('FONTAWESOME');
+                $this->result['previous_page'] = false;
+                UI::SmartyTemplate("about.html", $this->result);
+            }
             break;
         }
     }

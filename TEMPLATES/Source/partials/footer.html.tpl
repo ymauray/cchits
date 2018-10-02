@@ -1,3 +1,4 @@
+		<script src="{$baseURL}EXTERNALS/JQUERY.SPARKLINE/{$jquerysparkline}/jquery.sparkline.js"></script>
 		<script src="{$baseURL}EXTERNALS/POPPERJS/{$popperjs}/popper.js"></script>
         <script src="{$baseURL}EXTERNALS/BOOTSTRAP4/{$bootstrap4}/js/bootstrap.js"></script>
 		<script src="{$baseURL}EXTERNALS/CHARTJS/{$chartjs}/Chart.bundle.js"></script>

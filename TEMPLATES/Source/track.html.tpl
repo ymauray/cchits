@@ -14,10 +14,6 @@
 			a:hover {
 				background-color: initial;
 				color: initial;
-				text-decoration: underline;
-			}
-			a {
-				text-decoration: underline;
 			}
 		</style>
 		<title>{$ServiceName}</title>
@@ -71,7 +67,7 @@
 		{include file="track_detail.tpl"}
 	</div>
 		<script type="text/javascript">
-			$(function() {
+            $(document).ready(function() {
 				$('.inlinesparkline').sparkline();
 			});
 		</script>

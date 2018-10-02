@@ -25,11 +25,17 @@ body {
 a {
     color: inherit;
     outline: none;
+    border-bottom: 1px solid;
+    text-decoration: none;
+}
+
+#topnav a {
+    border-bottom: none;
 }
 
 a:hover {
     color: #01b1e6;
-    background-color: #000011;
+    /*background-color: #000011;*/
     text-decoration: none;
 }
 
@@ -230,11 +236,6 @@ a:hover {
 .col-player {
     margin-top: 1rem;
     margin-bottom: 1rem;
-}
-
-.col-player a:hover {
-    padding: 3px;
-    margin: -3px;
 }
 
 .col-player header,
