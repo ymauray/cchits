@@ -1173,6 +1173,7 @@ class HTML
         foreach ($shows as $intShowID=>$show) {
             /**
              * Type hint.
+             *
              * @var $show ShowObject
              */
             $this->result['shows'][$intShowID] = $show->getSelf(ShowObject::TITLE_FORMAT_SHORT);
