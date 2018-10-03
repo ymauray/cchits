@@ -115,7 +115,7 @@ class ShowObject extends GenericObject
     /**
      * Add the collected tracks to the getSelf function
      *
-     * @param $titleFormat int
+     * @param int $titleFormat Title format
      *
      * @return array The amassed data from this function
      */
@@ -208,7 +208,9 @@ class ShowObject extends GenericObject
             $return['isNSFW'] = false;
             $this->get_arrTracks();
             foreach ($this->arrTracks as $objTrack) {
-                /** @var $objTrack TrackObject */
+                /**
+                 * @var $objTrack TrackObject
+                 */
                 $return['arrTracks'][++$counter] = $objTrack->getSelf();
                 if ($this->asBoolean($objTrack->get_isNSFW())) {
                     $return['isNSFW'] = true;
