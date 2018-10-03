@@ -209,6 +209,7 @@ class ShowObject extends GenericObject
             $this->get_arrTracks();
             foreach ($this->arrTracks as $objTrack) {
                 /**
+                 * Type hint.
                  * @var $objTrack TrackObject
                  */
                 $return['arrTracks'][++$counter] = $objTrack->getSelf();

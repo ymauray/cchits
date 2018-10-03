@@ -1171,7 +1171,10 @@ class HTML
         }
         $shows = ShowBroker::getInternalShowByType('daily');
         foreach ($shows as $intShowID=>$show) {
-            /** @var $show ShowObject */
+            /**
+             * Type hint.
+             * @var $show ShowObject
+             */
             $this->result['shows'][$intShowID] = $show->getSelf(ShowObject::TITLE_FORMAT_SHORT);
             $playlist[$intShowID] = $this->result['shows'][$intShowID]['player_data'];
             /*
