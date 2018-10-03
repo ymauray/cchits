@@ -275,7 +275,9 @@ div[id^=jp_container_]:not([class*="jp-state-playing"]) .jp-stop {
 }
 
 .jp-play,
-.jp-stop {
+.jp-stop,
+.jp-previous,
+.jp-next {
     border: none;
     background-color: #00ADF2;
     color: white;
@@ -283,6 +285,15 @@ div[id^=jp_container_]:not([class*="jp-state-playing"]) .jp-stop {
     width: 3.125rem;
     text-align: center;
     cursor: pointer;
+    padding: 0;
+    outline: 0;
+}
+
+.jp-play:focus,
+.jp-stop:focus,
+.jp-previous:focus,
+.jp-next:focus {
+    outline: 0;
 }
 
 .jp-progress {
@@ -292,6 +303,10 @@ div[id^=jp_container_]:not([class*="jp-state-playing"]) .jp-stop {
     right: 0;
     height: 3.125rem;
     background-color: #404040;
+}
+
+.jp-playlist-controls .jp-progress {
+    left: 9.375rem;
 }
 
 .jp-seek-bar {
@@ -305,7 +320,7 @@ div[id^=jp_container_]:not([class*="jp-state-playing"]) .jp-stop {
 .jp-play-bar {
     position: absolute;
     top: 0;
-    left: 0px;
+    left: 0;
     height: 3.125rem;
     background-color: #0081AE;
 }
@@ -316,6 +331,10 @@ div[id^=jp_container_]:not([class*="jp-state-playing"]) .jp-stop {
     top: 0;
     color: white;
     line-height: 3.125rem;
+}
+
+.jp-playlist-controls .jp-current-time {
+    left: 10rem;
 }
 
 .jp-duration {
@@ -337,6 +356,10 @@ div[id^=jp_container_]:not([class*="jp-state-playing"]) .jp-stop {
     color: white;
     padding: .5rem;
     border-top: 1px solid #303030;
+}
+
+.jp-playlist li.jp-playlist-current {
+    background-color: #606060;
 }
 
 .jp-playlist a:hover {

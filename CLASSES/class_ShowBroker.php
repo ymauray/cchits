@@ -445,7 +445,7 @@ class ShowBroker
      * @param string  $enumShowType Type of show to look for
      * @param integer $intQuantity  Number of shows to get
      *
-     * @return object ShowObject
+     * @return ShowObject|false
      */
     public static function getInternalShowByType($enumShowType = '', $intQuantity = 25)
     {

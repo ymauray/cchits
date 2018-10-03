@@ -1171,15 +1171,19 @@ class HTML
         }
         $shows = ShowBroker::getInternalShowByType('daily');
         foreach ($shows as $intShowID=>$show) {
-            $this->result['shows'][$intShowID] = $show->getSelf();
+            /** @var $show ShowObject */
+            $this->result['shows'][$intShowID] = $show->getSelf(ShowObject::TITLE_FORMAT_SHORT);
             $playlist[$intShowID] = $this->result['shows'][$intShowID]['player_data'];
+            /*
+            $playlist[$intShowID]['name'] = preg_replace('/^The CCHits\.net Daily Exposure Show for /i', '', $playlist[$intShowID]['name']);
+            $playlist[$intShowID]['name'] = preg_replace('/featuring/i', '-', $playlist[$intShowID]['name']); 
+            $playlist[$intShowID]['title'] = preg_replace('/^The CCHits\.net Daily Exposure Show for /i', '', $playlist[$intShowID]['name']);
+            $playlist[$intShowID]['title'] = preg_replace('/featuring/i', '-', $playlist[$intShowID]['title']);
+            */
         }
         if ($this->render()) {
             $this->result['playlist_json'] = json_encode($playlist);
-            /*
-            var_dump($playlist);
-            die();
-            */
+            $this->result['page_title'] = 'Daily shows';
             UI::SmartyTemplate("shows.{$this->format}", $this->result);
         }
     }

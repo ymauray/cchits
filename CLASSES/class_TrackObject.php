@@ -747,7 +747,7 @@ class TrackObject extends GenericObject
     /**
      * Return the Artist Object
      *
-     * @return object ArtistObject
+     * @return ArtistObject
      */
     function get_objArtist()
     {
@@ -762,6 +762,16 @@ class TrackObject extends GenericObject
     function get_strTrackName()
     {
         return $this->strTrackName;
+    }
+
+    /**
+     * Return the prefered value for the strTrackName
+     *
+     * @return string
+     */
+    function get_strUnserializedTrackName()
+    {
+        return parent::preferredJson($this->strTrackName);
     }
 
     /**

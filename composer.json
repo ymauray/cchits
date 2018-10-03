@@ -8,5 +8,8 @@
         "issues": "https://github.com/CCHits/Website/issues",
         "wiki": "https://github.com/CCHits/Website/wiki",
         "source": "https://github.com/CCHits/Website"
-    }
+    },
+  "require": {
+    "ext-json": "*"
+  }
 }

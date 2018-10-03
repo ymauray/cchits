@@ -29,6 +29,9 @@
  */
 class ShowObject extends GenericObject
 {
+    const TITLE_FORMAT_STANDARD = 0;
+    const TITLE_FORMAT_SHORT = 1;
+
     // Inherited Properties
     protected $arrDBItems = array('strShowName'=>true, 'strShowUrl'=>true, 'intShowUrl'=>true, 'enumShowType'=>true, 
         'intUserID'=>true, 'timeLength'=>true, 'shaHash'=>true, 'strCommentUrl'=>true, 'jsonAudioLayout'=>true, 
@@ -112,9 +115,11 @@ class ShowObject extends GenericObject
     /**
      * Add the collected tracks to the getSelf function
      *
-     * @return The amassed data from this function
+     * @param $titleFormat int
+     *
+     * @return array The amassed data from this function
      */
-    function getSelf()
+    function getSelf($titleFormat = self::TITLE_FORMAT_STANDARD)
     {
         if ($this->intShowUrl != 0) {
             if ($this->strShowUrl == "") {
@@ -165,14 +170,16 @@ class ShowObject extends GenericObject
                     $this->strShowNameSpoken .= ' ' . UI::getPronouncableDate(substr($this->intShowUrl, 0, 4));
                     break;
                 case 'daily':
-                    $this->strShowName = 'The ' . ConfigBroker::getConfig('Site Name', 'CCHits.net');
-                    $this->strShowName .= ' ' . ConfigBroker::getConfig('Daily Show Name', 'Daily Exposure Show');
-                    $this->strShowName .= ' for ';
-                    $this->strShowName .= UI::getLongDate($this->intShowUrl);
-                    $this->strShowNameSpoken = ConfigBroker::getConfig('Spoken Daily Show Name', 'Daily Exposure Show');
-                    $this->strShowNameSpoken .= ' for ';
-                    $this->strShowNameSpoken .= date("jS F", strtotime(UI::getLongDate($this->intShowUrl)));
-                    $this->strShowNameSpoken .= ' ' . UI::getPronouncableDate(substr($this->intShowUrl, 0, 4));
+                    if ($titleFormat == self::TITLE_FORMAT_STANDARD) {
+                        $this->strShowName = 'The ' . ConfigBroker::getConfig('Site Name', 'CCHits.net');
+                        $this->strShowName .= ' ' . ConfigBroker::getConfig('Daily Show Name', 'Daily Exposure Show');
+                        $this->strShowName .= ' for ';
+                        $this->strShowName .= UI::getLongDate($this->intShowUrl);
+                        $this->strShowNameSpoken = ConfigBroker::getConfig('Spoken Daily Show Name', 'Daily Exposure Show');
+                        $this->strShowNameSpoken .= ' for ';
+                        $this->strShowNameSpoken .= date("jS F", strtotime(UI::getLongDate($this->intShowUrl)));
+                        $this->strShowNameSpoken .= ' ' . UI::getPronouncableDate(substr($this->intShowUrl, 0, 4));
+                    }
                     break;
                 case 'weekly':
                     $this->strShowName = 'The ' . ConfigBroker::getConfig('Site Name', 'CCHits.net');
@@ -194,13 +201,14 @@ class ShowObject extends GenericObject
         $first = true;
         if ($this->booleanFull == true) {
             $this->get_arrTracks();
-            if ($this->booleanFeaturing == true) {
+            if (($titleFormat == self::TITLE_FORMAT_STANDARD) &&  ($this->booleanFeaturing == true)) {
                 $showname .= ' featuring ';
             }
             $showname_tracks = '';
             $return['isNSFW'] = false;
             $this->get_arrTracks();
             foreach ($this->arrTracks as $objTrack) {
+                /** @var $objTrack TrackObject */
                 $return['arrTracks'][++$counter] = $objTrack->getSelf();
                 if ($this->asBoolean($objTrack->get_isNSFW())) {
                     $return['isNSFW'] = true;
@@ -209,8 +217,8 @@ class ShowObject extends GenericObject
                     if ($showname_tracks != '') {
                         $showname_tracks .= ', ';
                     }
-                    $showname_tracks .= $objTrack->get_strTrackName() . ' by ' . 
-                        $objTrack->get_objArtist()->get_strArtistName();
+                    $showname_tracks .= $objTrack->get_strUnserializedTrackName() . ' by ' .
+                        $objTrack->get_objArtist()->get_strUnserializedArtistName();
                 } elseif ($first) {
                     $first = false;
                     $showname_tracks .= ' and more...';
@@ -218,6 +226,9 @@ class ShowObject extends GenericObject
             }
             if ($this->booleanFeaturing == true) {
                 $showname .= $showname_tracks;
+            }
+            if ($titleFormat == self::TITLE_FORMAT_SHORT) {
+                $showname .= " (" . date("jS F", strtotime(UI::getLongDate($this->intShowUrl))) . ")";
             }
             $return['show_summary'] = $showname_tracks;
             $return['player_data'] = array(

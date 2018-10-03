@@ -9,15 +9,10 @@
 					<div class="jp-volume-bar-value"></div>
 				</div>
 			</div>
-			<div class="jp-controls-holder">
+			<div class="jp-controls-holder{if (is_array($playlist) or isset($playlist_is_array))} jp-playlist-controls{/if}">
 				<div class="jp-controls">
-					{if isset($playlist.player_data)}{elseif is_array($playlist)}
-					<button class="jp-previous" role="button" tabindex="0">previous</button>
-					{/if}
-					<button class="jp-play" role="button" tabindex="0"><i class="fa fa-play"></i></button>
-					<button class="jp-stop" role="button" tabindex="0"><i class="fa fa-stop"></i></button>
-					{if isset($playlist.player_data)}{elseif is_array($playlist)}
-					<button class="jp-next" role="button" tabindex="0">next</button>
+					{if isset($playlist.player_data)}{elseif (is_array($playlist) or isset($playlist_is_array))}
+					<button class="jp-previous" role="button" tabindex="0"><i class="fa fa-step-backward"></i></button>{/if}<button class="jp-play" role="button" tabindex="0"><i class="fa fa-play"></i></button><button class="jp-stop" role="button" tabindex="0"><i class="fa fa-stop"></i></button>{if isset($playlist.player_data)}{elseif (is_array($playlist) or isset($playlist_is_array))}<button class="jp-next" role="button" tabindex="0"><i class="fa fa-step-forward"></i></button>
 					{/if}
 				</div>
 				<div class="jp-progress">
@@ -29,7 +24,7 @@
 				<div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
 				<div class="jp-toggles">
 					<button class="jp-repeat" role="button" tabindex="0">repeat</button>
-					{if isset($playlist.player_data)}{elseif is_array($playlist)}
+					{if isset($playlist.player_data)}{elseif (is_array($playlist) or isset($playlist_is_array))}
 					<button class="jp-shuffle" role="button" tabindex="0">shuffle</button>
 					{/if}
 				</div>

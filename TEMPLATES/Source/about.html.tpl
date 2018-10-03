@@ -1,12 +1,12 @@
 {include file="partials/header.html.tpl"}
 <div class="container" id="chart">
     <div class="row row-header">
-        <div class="col">
+        <div class="col-12">
             <header>About</header>
         </div>
     </div>
     <div class="row toc">
-        <div class="col">
+        <div class="col-12">
             <h3>About CCHits.net, the FAQ and more</h3>
             <ul>
                 <li><a href="#goals">Goals</a></li>
@@ -21,7 +21,7 @@
         </div>
     </div>
     <div class="row FAQItem">
-        <div class="col">
+        <div class="col-12">
             <a name="goals"></a>
             <h3>Goals</h3>
             <p>CCHits.net is a site promoting and featuring <a href="http://creativecommons.org/about/licenses/">Creative Commons</a> licensed music and the podcasts that play them. The site was designed with more than just this in mind. Here are some of the highlights</p>
@@ -49,14 +49,14 @@
         </div>
     </div>
     <div class="row GetInvolved">
-        <div class="col">
+        <div class="col-12">
             <a name="getinvolved"></a>
             <h3>Get Involved</h3>
             <p>If you want to get involved, please contact <a href="mailto:show@cchits.net">show@cchits.net</a> to talk about submitting tracks, creating shows and generally doing more with CCHits.net</p>
         </div>
     </div>
     <div class="row FAQItem">
-        <div class="col">
+        <div class="col-12">
             <a name="source"></a>
             <h3>Source</h3>
             <p>The source code for everything driving this site is available in the Git Repositories at <a href="http://github.com/cchits/website">Github</a>.</p>
@@ -64,13 +64,13 @@
         </div>
     </div>
     <div class="row FAQItem">
-        <div class="col">
+        <div class="col-12">
             <h3>Developers</h3>
             <p>Thinking of working with the source code, API or website? Have a look at <a href="https://github.com/CCHits/Website/wiki">the development site</a>.</p>
         </div>
     </div>
     <div class="row FAQItem">
-        <div class="col">
+        <div class="col-12">
             <a name="database"></a>
             <h3>Database</h3>
             <p>I was inspired by the <a href="http://ur1.ca">ur1.ca</a> folk, that giving away access to your database is almost as powerful as the service you're already providing. To try and achieve what they do, from this page, you can request an export of the database, albeit with one factor sanitized... the users table. There are two columns, containing the OpenID Claimed Identity page, and the Username and Password hash used to perform API calls. Both of these will be hashed before sending, to help keep user records secure.</p>
@@ -82,14 +82,14 @@
         </div>
     </div>
     <div class="row FAQItem">
-        <div class="col">
+        <div class="col-12">
             <a name="api"></a>
             <h3>API</h3>
             <p>Please see the <a href="https://github.com/CCHits/Website/wiki/Using-the-API">full API documentation</a>.</p>
         </div>
     </div>
     <div class="row FAQItem">
-        <div class="col">
+        <div class="col-12">
             <a name="voteadjust"></a>
             <h3>Vote Adjustments</h3>
             <p>CCHits.net adjusts the votes accrued when weekly review shows and monthly chart shows are released. In both cases, this is to try and ensure that generated shows don't constantly repeat the same tracks that became popular at the start of the system.</p>
@@ -98,21 +98,21 @@
         </div>
     </div>
     <div class="row FAQItem">
-        <div class="col">
+        <div class="col-12">
             <a name="trends"></a>
             <h3>Trending Data</h3>
             <p>CCHits.net monitors trending information about tracks which are being voted upon. This is done by a very simple formula - the votes for each 24 hour period is collated and multiplied by an incrementing number to correspond with the number of days the surveyed sample covers. A single vote placed on each of the 7 days in the searched period will be equivelent to 1 vote on the first day, 2 on the second, 3 on the third and so on. Each search covers 7 days.</p>
         </div>
     </div>
     <div class="row FAQItem">
-        <div class="col">
+        <div class="col-12">
             <a name="theme"></a>
             <h3>Theme</h3>
             <p>The theme is an exerpt from a track, sourced from <a href="http://ccmixter.org/">ccMixter</a>. The Track is called <a href="http://ccmixter.org/files/scottaltham/19726">GMZ</a> and was created by <a href="http://ccmixter.org/people/scottaltham">scottaltham</a>.</p>
         </div>
     </div>
     <div class="row FAQItem">
-        <div class="col">
+        <div class="col-12">
             <a name="nsfw"></a>
             <h3>Not Safe for Work or Family Listening - an explanation</h3>
             <p>As this project was originally supposed to create audio to be used at events, I wanted to be clear about the demarkation between "Work-or-Family Safe" music, and non... so I drew up these guidelines. A track is safe for work-or-family listening if:</p>

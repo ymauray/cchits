@@ -115,6 +115,16 @@ class ArtistObject extends GenericObject
     }
 
     /**
+     * Return the prefered value for the strArtistName
+     *
+     * @return string
+     */
+    function get_strUnserializedArtistName()
+    {
+        return parent::preferredJson($this->strArtistName);
+    }
+
+    /**
      * Return the value of the strArtistNameSounds
      *
      * @return string $strArtistNameSounds
