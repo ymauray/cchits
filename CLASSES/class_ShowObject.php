@@ -175,7 +175,8 @@ class ShowObject extends GenericObject
                         $this->strShowName .= ' ' . ConfigBroker::getConfig('Daily Show Name', 'Daily Exposure Show');
                         $this->strShowName .= ' for ';
                         $this->strShowName .= UI::getLongDate($this->intShowUrl);
-                        $this->strShowNameSpoken = ConfigBroker::getConfig('Spoken Daily Show Name', 'Daily Exposure Show');
+                        $this->strShowNameSpoken =
+                            ConfigBroker::getConfig('Spoken Daily Show Name', 'Daily Exposure Show');
                         $this->strShowNameSpoken .= ' for ';
                         $this->strShowNameSpoken .= date("jS F", strtotime(UI::getLongDate($this->intShowUrl)));
                         $this->strShowNameSpoken .= ' ' . UI::getPronouncableDate(substr($this->intShowUrl, 0, 4));
@@ -210,7 +211,7 @@ class ShowObject extends GenericObject
             foreach ($this->arrTracks as $objTrack) {
                 /**
                  * Type hint.
-                 * 
+                 *
                  * @var $objTrack TrackObject
                  */
                 $return['arrTracks'][++$counter] = $objTrack->getSelf();
